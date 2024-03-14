@@ -16,7 +16,19 @@
 <body>
 
 <div class="container">
-  <h1 class="mt-4 mb-3">Criar cliente</h1>
+    <h1 class="mt-4 mb-3">Formulário de Criação de Cliente</h1>
+    <form action="rota_de_salvar_cliente" method="POST">
+      @csrf <!-- Adicione esta linha se estiver usando o Laravel para evitar o erro de token de verificação -->
+      <div class="mb-3">
+        <label for="id" class="form-label">ID:</label>
+        <input type="text" class="form-control" id="id" name="id">
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+      <button type="submit" class="btn btn-primary">Salvar Cliente</button>
+    </form>
 </div>
 
 <!-- Bootstrap Bundle with Popper -->

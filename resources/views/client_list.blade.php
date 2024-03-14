@@ -22,16 +22,20 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
+        <th scope="col">Opções</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Exemplo Cliente</td>
-      </tr>
+        @foreach ($clients as $client)
+        <tr>
+          <th scope="row">{{$client->id}}</th>
+          <td>{{$client->name}}</td>
+          <td></td>
+        </tr>
+        @endforeach
     </tbody>
   </table>
-  <a class="btn btn-success" href="route('post.show', ['post' => 1])">Criar cliente</a>
+  <a class="btn btn-success" href="{{route('client.create')}}">Criar cliente</a>
 </div>
 
 <!-- Bootstrap Bundle with Popper -->
