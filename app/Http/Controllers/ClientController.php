@@ -29,7 +29,9 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = ['name' => $request['name']];
+        Client::create($date);
+        return redirect(route('client.index'));
     }
 
     /**
@@ -37,7 +39,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('client_read');
+        return view('client_read', ['client' => $client]);
     }
 
     /**
@@ -45,7 +47,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('client_update');
+        return view('client_update', ['client' => $client]);
     }
 
     /**
@@ -53,7 +55,9 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $dados = ['name' => $request['name']];
+        $client->update($dados);
+        return redirect(route('client.index'));
     }
 
     /**
@@ -61,6 +65,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect(route('client.index'));
     }
 }

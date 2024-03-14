@@ -16,7 +16,19 @@
 <body>
 
 <div class="container">
-  <h1 class="mt-4 mb-3">Ver Cliente</h1>
+    <h1 class="mt-4 mb-3">Cliente</h1>
+    <form>
+      @csrf
+      <div class="mb-3">
+        <label for="id" class="form-label">ID:</label>
+        <input type="text" class="form-control" id="id" name="id" value="{{$client->id}}" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome:</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{$client->name}}" readonly>
+      </div>
+      <a href="{{route('client.index')}}" class="btn btn-primary">Voltar</a>
+    </form>
 </div>
 
 <!-- Bootstrap Bundle with Popper -->

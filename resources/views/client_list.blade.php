@@ -30,7 +30,15 @@
         <tr>
           <th scope="row">{{$client->id}}</th>
           <td>{{$client->name}}</td>
-          <td></td>
+          <td>
+                <a class="btn btn-info btn-sm" href="{{route('client.show', ['client' => $client])}}">Ver</a>
+                <a class="btn btn-primary btn-sm" href="{{route('client.edit', ['client' => $client])}}">Editar</a>
+                <form action="{{route('client.destroy', ['client' => $client])}}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja apagar este cliente?')">Delete</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>
